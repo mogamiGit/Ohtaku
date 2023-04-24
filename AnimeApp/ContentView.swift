@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var vm = AnimesVM()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        List(vm.animes) { anime in
+            HStack {
+                Text(anime.title)
+                    .font(.headline)
+            }
         }
-        .padding()
     }
 }
 
