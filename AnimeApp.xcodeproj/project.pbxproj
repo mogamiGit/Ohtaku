@@ -16,6 +16,8 @@
 		D327F4BA29F53D8A00C21B92 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4B929F53D8A00C21B92 /* Extensions.swift */; };
 		D327F4BC29F5423600C21B92 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4BB29F5423600C21B92 /* Persistence.swift */; };
 		D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4BD29F543FE00C21B92 /* AnimesVM.swift */; };
+		D3440BAC29FFB58600C76755 /* animeTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3440BAB29FFB58600C76755 /* animeTest.json */; };
+		D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3440BAD29FFB82300C76755 /* DataTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		D327F4B929F53D8A00C21B92 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D327F4BB29F5423600C21B92 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D327F4BD29F543FE00C21B92 /* AnimesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimesVM.swift; sourceTree = "<group>"; };
+		D3440BAB29FFB58600C76755 /* animeTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animeTest.json; sourceTree = "<group>"; };
+		D3440BAD29FFB82300C76755 /* DataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,9 @@
 		D327F4A729F5209700C21B92 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D3440BAB29FFB58600C76755 /* animeTest.json */,
 				D327F4A829F5209700C21B92 /* Preview Assets.xcassets */,
+				D3440BAD29FFB82300C76755 /* DataTest.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3440BAC29FFB58600C76755 /* animeTest.json in Resources */,
 				D327F4A929F5209700C21B92 /* Preview Assets.xcassets in Resources */,
 				D327F4A629F5209700C21B92 /* Assets.xcassets in Resources */,
 				D327F4B329F538B700C21B92 /* anime.json in Resources */,
@@ -205,6 +212,7 @@
 				D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */,
 				D327F4BA29F53D8A00C21B92 /* Extensions.swift in Sources */,
 				D327F4B629F53A4200C21B92 /* AnimeModel.swift in Sources */,
+				D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */,
 				D327F4A229F5209600C21B92 /* AnimeAppApp.swift in Sources */,
 				D327F4BC29F5423600C21B92 /* Persistence.swift in Sources */,
 			);

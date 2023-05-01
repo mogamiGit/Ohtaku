@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var vm = AnimesVM()
+    @ObservedObject var vm:AnimesVM
     
     var body: some View {
         List(vm.animes) { anime in
@@ -22,6 +22,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(vm: .preview)
     }
 }

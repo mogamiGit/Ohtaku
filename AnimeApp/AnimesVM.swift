@@ -9,12 +9,14 @@ import Foundation
 
 final class AnimesVM:ObservableObject {
     static let shared = AnimesVM()
-    let persistence = Persistence.shared
+    
+    let persistence:Persistence
     
     @Published var animes:[Anime]
     
-    init() {
+    init(persistence:Persistence = .shared) {
         do {
+            self.persistence = persistence
             self.animes = try persistence.loadAnimes()
         } catch {
             print(error)

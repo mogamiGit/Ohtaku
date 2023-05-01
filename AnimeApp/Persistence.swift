@@ -7,13 +7,27 @@
 
 import Foundation
 
+protocol FileLocation {
+    var fileURL:URL { get }
+}
+
+struct FileProduction:FileLocation {
+    var fileURL: URL {
+        Bundle.main.url(forResource: "anime", withExtension: "json")!
+    }
+}
+
 final class Persistence {
     static let shared = Persistence()
     
-    let url = Bundle.main.url(forResource: "anime", withExtension: "json")!
+    let fileLocation:FileLocation
+    
+    init(fileLocation:FileLocation = FileProduction()) {
+        self.fileLocation = fileLocation
+    }
     
     func loadAnimes() throws -> [Anime] {
-        let data = try Data(contentsOf: url)
+        let data = try Data(contentsOf: fileLocation.fileURL)
         return try JSONDecoder().decode([Anime].self, from: data)
     }
 }
