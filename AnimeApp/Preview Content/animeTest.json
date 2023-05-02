@@ -41,17 +41,44 @@
     "image": "https:\/\/www3.animeflv.net\/uploads\/animes\/covers\/1355.jpg"
   },
   {
-    "title": "Fushigi no Umi no Nadia",
-    "description": "La revolución industrial ha terminado y el mundo está siendo consumido por una nueva tecnología y nuevas máquinas. Un joven científico, Jean, ve a una guapísima chica de color mientras se encuentra en Francia, la sigue y termina metiéndose en problemas. Mientras tanto, una mujer y sus dos matones están tras el amuleto de la chica, llamado Piedra Azul. La chica, Nadia, escapa con Jean. De esta forma, los dos intentarán evitar que los malvados se apoderen del amuleto.",
-    "year": 1990,
-    "type": "Anime",
+    "title": "Shinmai Maou no Testament Departures",
+    "year": 2018,
+    "type": "OVA",
     "rate_start": "4.5",
-    "votes": 99,
+    "votes": 785,
     "status": "Finalizado",
-    "followers": 841,
-    "episodes": 39,
-    "genres": "Aventuras,Ciencia Ficción,Comedia,Historico,Romance",
-    "url_anime": "https:\/\/www3.animeflv.net\/anime\/fushigi-no-umi-no-nadia",
-    "image": "https:\/\/www3.animeflv.net\/uploads\/animes\/covers\/2190.jpg"
+    "followers": 6345,
+    "episodes": 1,
+    "genres": "Acción,Demonios,Ecchi,Fantasía,Harem,Romance",
+    "url_anime": "https:\/\/www3.animeflv.net\/anime\/shinmai-maou-no-testament-departures",
+    "image": "https:\/\/www3.animeflv.net\/uploads\/animes\/covers\/2905.jpg"
+  },
+  {
+    "title": "Gotou ni Naritai",
+    "description": "Esta es la historia de una niña que nació con una pierna mala. Ritsuko anhela ir a la escuela y hacer un montón de amigos, pero esto no resulta tan fácil. Su madre es muy protectora con ella, y ella recibe burlas por sus compañeros de clase a causa de su discapacidad. ¿Conseguirá mantener su sonrisa?",
+    "year": 1995,
+    "type": "Película",
+    "rate_start": "4.5",
+    "votes": 38,
+    "status": "Finalizado",
+    "followers": 128,
+    "episodes": 1,
+    "genres": "Drama,Escolares,Recuentos de la vida",
+    "url_anime": "https:\/\/www3.animeflv.net\/anime\/gotou-ni-naritai",
+    "image": "https:\/\/www3.animeflv.net\/uploads\/animes\/covers\/2274.jpg"
+  },
+  {
+    "title": "Fate\/Grand Order: Zettai Majuu Sensen Babylonia - Initium Iter",
+    "description": "Año 2017. La última era en la que existió la magia. Los humanos crearon la sociedad, pero los Magos fueron quienes consiguieron alcanzar la verdad del mundo. La magia se compone de técnicas del pasado que la ciencia no puede explicar, mientras que la ciencia se compone de técnicas del futuro que la magia no puede alcanzar. Estudiosos e investigadores de ambos mundos se reunieron para preservar la civilización humana bajo la Organización de Seguridad Chaldea. Sin embargo, todos los cálculos apuntan a la extinción de la humanidad en 2019",
+    "year": 2019,
+    "type": "Especial",
+    "rate_start": "4.6",
+    "votes": 384,
+    "status": "Finalizado",
+    "followers": 4640,
+    "episodes": 1,
+    "genres": "Acción,Fantasía,Magia,Sobrenatural",
+    "url_anime": "https:\/\/www3.animeflv.net\/anime\/fategrand-order-zettai-majuu-sensen-babylonia-initium-iter",
+    "image": "https:\/\/www3.animeflv.net\/uploads\/animes\/covers\/3181.jpg"
   }
 ]

@@ -16,8 +16,10 @@
 		D327F4BA29F53D8A00C21B92 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4B929F53D8A00C21B92 /* Extensions.swift */; };
 		D327F4BC29F5423600C21B92 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4BB29F5423600C21B92 /* Persistence.swift */; };
 		D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4BD29F543FE00C21B92 /* AnimesVM.swift */; };
+		D33671982A0115DD00F6AF1F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33671972A0115DD00F6AF1F /* Colors.xcassets */; };
 		D3440BAC29FFB58600C76755 /* animeTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3440BAB29FFB58600C76755 /* animeTest.json */; };
 		D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3440BAD29FFB82300C76755 /* DataTest.swift */; };
+		D3440BB029FFC70600C76755 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3440BAF29FFC70600C76755 /* AnimeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +33,10 @@
 		D327F4B929F53D8A00C21B92 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D327F4BB29F5423600C21B92 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D327F4BD29F543FE00C21B92 /* AnimesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimesVM.swift; sourceTree = "<group>"; };
+		D33671972A0115DD00F6AF1F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D3440BAB29FFB58600C76755 /* animeTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animeTest.json; sourceTree = "<group>"; };
 		D3440BAD29FFB82300C76755 /* DataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTest.swift; sourceTree = "<group>"; };
+		D3440BAF29FFC70600C76755 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				D327F4BF29F544AD00C21B92 /* Views */,
+				D3440BB129FFC75C00C76755 /* Components */,
 				D327F4B029F5232700C21B92 /* ViewModels */,
 				D327F4B429F538DD00C21B92 /* Model */,
 				D327F4B129F538A200C21B92 /* Resources */,
@@ -91,6 +96,7 @@
 			children = (
 				D327F4A129F5209600C21B92 /* AnimeAppApp.swift */,
 				D327F4A529F5209700C21B92 /* Assets.xcassets */,
+				D33671972A0115DD00F6AF1F /* Colors.xcassets */,
 			);
 			name = system;
 			sourceTree = "<group>";
@@ -134,6 +140,14 @@
 				D327F4A329F5209600C21B92 /* ContentView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D3440BB129FFC75C00C76755 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D3440BAF29FFC70600C76755 /* AnimeCell.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D33671982A0115DD00F6AF1F /* Colors.xcassets in Resources */,
 				D3440BAC29FFB58600C76755 /* animeTest.json in Resources */,
 				D327F4A929F5209700C21B92 /* Preview Assets.xcassets in Resources */,
 				D327F4A629F5209700C21B92 /* Assets.xcassets in Resources */,
@@ -212,6 +227,7 @@
 				D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */,
 				D327F4BA29F53D8A00C21B92 /* Extensions.swift in Sources */,
 				D327F4B629F53A4200C21B92 /* AnimeModel.swift in Sources */,
+				D3440BB029FFC70600C76755 /* AnimeCell.swift in Sources */,
 				D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */,
 				D327F4A229F5209600C21B92 /* AnimeAppApp.swift in Sources */,
 				D327F4BC29F5423600C21B92 /* Persistence.swift in Sources */,

@@ -19,7 +19,7 @@ final class AnimesVM:ObservableObject {
             self.persistence = persistence
             self.animes = try persistence.loadAnimes()
         } catch {
-            print(error)
+            debugPrint(error)
             self.animes = []
         }
     }

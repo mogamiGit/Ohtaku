@@ -12,11 +12,11 @@ struct ContentView: View {
     
     var body: some View {
         List(vm.animes) { anime in
-            HStack {
-                Text(anime.title)
-                    .font(.headline)
-            }
+            AnimeCell(anime: anime)
+                //.listRowSeparator(.hidden)
         }
+        .listStyle(.grouped)
+        
     }
 }
 
