@@ -28,5 +28,5 @@ extension Anime {
                             followers: 1098,
                             episodes: 13,
                             urlAnime: URL(string: "https://www3.animeflv.net/anime/ninja-scroll")!,
-                            image: URL(string: "https://www3.animeflv.net/uploads/animes/covers/560.jpt")!)
+                            image: URL(string: "https://www3.animeflv.net/uploads/animes/covers/560.jpg")!)
 }

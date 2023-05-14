@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - AnimeModel
-struct Anime: Codable, Identifiable {
+struct Anime: Codable, Identifiable, Hashable {
     let id = UUID()
     let title:String
     let description:String?

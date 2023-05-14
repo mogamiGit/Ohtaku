@@ -8,20 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var vm:AnimesVM
+    @EnvironmentObject var vm:AnimesVM
     
     var body: some View {
-        List(vm.animes) { anime in
-            AnimeCell(anime: anime)
-                //.listRowSeparator(.hidden)
+        NavigationStack {
+            List(vm.animesSearch) { anime in
+                NavigationLink(value: anime) {
+                    AnimeCell(anime: anime)
+                }
+            }
+            .searchable(text: $vm.search)
+            .animation(.default, value: vm.search)
+            .navigationDestination(for: Anime.self) { anime in
+                DetailView(anime: anime)
+            }
+            .listStyle(.grouped)
         }
-        .listStyle(.grouped)
-        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(vm: .preview)
+        ContentView()
+            .environmentObject(AnimesVM.preview)
     }
 }

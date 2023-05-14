@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct AnimeAppApp: App {
+    @StateObject var vm = AnimesVM()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(vm: AnimesVM())
+            ContentView()
+                .environmentObject(vm)
         }
     }
 }

@@ -25,13 +25,21 @@ struct AnimeCell: View {
                         .frame(width: 150, height: 220)
                         .background{ Color.primary.opacity(0.2) }
                 }
-                Text("type")
+                Text(anime.type.rawValue)
                     .font(.subheadline)
                     .foregroundColor(.black)
                     .padding(5)
                     .background{
-                        RoundedRectangle(cornerRadius: 2)
-                            .fill(Color.accentAcid)
+                        switch anime.type {
+                        case .anime :
+                            Color.secondaryAcid
+                        case .especial:
+                            Color.accentAcid
+                        case .ova:
+                            Color.accentAcid
+                        case .pelicula:
+                            Color.secondaryAcidTwo
+                        }
                     }
                     .padding(8)
             }
@@ -40,7 +48,6 @@ struct AnimeCell: View {
                 Text(anime.title)
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .lineLimit(3)
                 if anime.episodes > 1{
                     Text("\(anime.episodes) Episodios")
                         .font(.callout)
@@ -54,7 +61,7 @@ struct AnimeCell: View {
                             .foregroundColor(Color.mainAcid)
                             .padding(5)
                             .background{
-                                RoundedRectangle(cornerRadius: 5)
+                                RoundedRectangle(cornerRadius: 2)
                                     .stroke(Color.mainAcid)
                             }
                     }

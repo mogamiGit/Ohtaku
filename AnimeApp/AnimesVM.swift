@@ -13,6 +13,17 @@ final class AnimesVM:ObservableObject {
     let persistence:Persistence
     
     @Published var animes:[Anime]
+    @Published var search = ""
+    
+    var animesSearch:[Anime] {
+        animes.filter { anime in
+            if search.isEmpty {
+                return true
+            } else {
+                return anime.title.lowercased().contains(search.lowercased())
+            }
+        }
+    }
     
     init(persistence:Persistence = .shared) {
         do {
