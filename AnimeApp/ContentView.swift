@@ -32,15 +32,17 @@ struct ContentView: View {
                         }
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        changeOrder.toggle()
-                        vm.toggleSortOrder()
-                    } label: {
-                        if changeOrder {
-                            Image(systemName: "arrow.down")
-                        } else {
-                            Image(systemName: "arrow.up")
+                if vm.sorted != .none {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            changeOrder.toggle()
+                            vm.toggleSortOrder()
+                        } label: {
+                            if changeOrder {
+                                Image(systemName: "arrow.down")
+                            } else {
+                                Image(systemName: "arrow.up")
+                            }
                         }
                     }
                 }
