@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var vm:AnimesVM
+    @State var changeOrder = false
     
     var body: some View {
         NavigationStack {
@@ -18,6 +19,32 @@ struct ContentView: View {
                 }
             }
             .searchable(text: $vm.search)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu("Ordenar por") {
+                        Picker(selection: $vm.sorted) {
+                            ForEach(AnimesVM.animeSortedBy.allCases) {
+                                sorted in
+                                Text(sorted.rawValue)
+                            }
+                        } label: {
+                            Text("Ordenar por")
+                        }
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        changeOrder.toggle()
+                        vm.toggleSortOrder()
+                    } label: {
+                        if changeOrder {
+                            Image(systemName: "arrow.down")
+                        } else {
+                            Image(systemName: "arrow.up")
+                        }
+                    }
+                }
+            }
             .animation(.default, value: vm.search)
             .navigationDestination(for: Anime.self) { anime in
                 DetailView(anime: anime)
