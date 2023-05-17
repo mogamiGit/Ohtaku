@@ -13,7 +13,7 @@ struct AnimeAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AnimeListView()
                 .environmentObject(vm)
         }
     }

@@ -27,6 +27,10 @@ struct Anime: Codable, Identifiable, Hashable {
         genres?.components(separatedBy: ",") ?? ["No genres"]
     }
     
+    var rateInt: Int {
+        Int(Double(rateStart) ?? 0.0)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, description, year, type, votes, status, followers, episodes,image, genres
         case rateStart = "rate_start"

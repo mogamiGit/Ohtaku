@@ -25,22 +25,7 @@ struct AnimeCell: View {
                         .frame(width: 150, height: 220)
                         .background{ Color.primary.opacity(0.2) }
                 }
-                Text(anime.type.rawValue)
-                    .font(.subheadline)
-                    .foregroundColor(.black)
-                    .padding(5)
-                    .background{
-                        switch anime.type {
-                        case .anime :
-                            Color.secondaryAcid
-                        case .especial:
-                            Color.accentAcid
-                        case .ova:
-                            Color.accentAcid
-                        case .pelicula:
-                            Color.secondaryAcidTwo
-                        }
-                    }
+                TagType(anime: anime)
                     .padding(8)
             }
             .padding(10)

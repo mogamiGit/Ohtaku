@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AnimeListView.swift
 //  AnimeApp
 //
 //  Created by Monica Galan de la Llana on 23/4/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AnimeListView: View {
     @EnvironmentObject var vm:AnimesVM
     @State var changeOrder = false
     
@@ -56,9 +56,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AnimeListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AnimeListView()
             .environmentObject(AnimesVM.preview)
     }
 }

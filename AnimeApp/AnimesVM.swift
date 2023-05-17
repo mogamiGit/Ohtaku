@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class AnimesVM:ObservableObject {
     enum animeSortedBy: String, CaseIterable, Identifiable {
@@ -21,16 +22,15 @@ final class AnimesVM:ObservableObject {
         case descending
     }
     
-    //meter otro toolbaritem para cambiar el orden ascendente y descendente. Cuando está descendente cambia la flecha para pulsar hacia arriba y vicaversa.
-    
-    static let shared = AnimesVM()
-    
     let persistence:Persistence
     
     @Published var animes:[Anime]
     @Published var search = ""
     @Published var sorted:animeSortedBy = .none
     @Published var changeSort:sortChangeOrder = .ascending
+    
+    // Crear en la view del Detail un apartado que solo aparezca cuando tiene OVAS o pelis. Con una función que capture la primera palabra del título (o parte) y cree un filtrp para que pinte solo los que estén relacionados.
+    // Crear un apartado de animes relacionados con un filtro de géneros.
     
     var animesSearch:[Anime] {
         let animesFiltered = animes.filter { anime in
@@ -61,14 +61,16 @@ final class AnimesVM:ObservableObject {
         }
         
         return sortedAnimes
-        
-        /*
-        if changeSort == .ascending {
-            return sortedAnimes
-        } else {
-            return sortedAnimes.reversed()
+    }
+    
+    init(persistence:Persistence = .shared) {
+        do {
+            self.persistence = persistence
+            self.animes = try persistence.loadAnimes()
+        } catch {
+            debugPrint(error)
+            self.animes = []
         }
-        */
     }
     
     func toggleSortOrder() {
@@ -79,13 +81,13 @@ final class AnimesVM:ObservableObject {
         }
     }
     
-    init(persistence:Persistence = .shared) {
-        do {
-            self.persistence = persistence
-            self.animes = try persistence.loadAnimes()
-        } catch {
-            debugPrint(error)
-            self.animes = []
+    func starRate(num:Int, image:String) -> some View {
+        ForEach(1...num, id: \.self) { n in
+            Image(systemName: image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20)
+                .foregroundColor(Color.mainAcid)
         }
     }
 }
