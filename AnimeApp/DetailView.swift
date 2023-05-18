@@ -55,7 +55,6 @@ struct DetailView: View {
                                 image
                                     .resizable()
                                     .scaledToFit()
-                                    
                             } placeholder: {
                                 Image("dissapointed-flower")
                                     .resizable()
@@ -65,21 +64,10 @@ struct DetailView: View {
                             }
                             ZStack {
                                 Rectangle()
+                                    .fill(getStatusColor())
                                     .frame(height: 50)
-                                    .background{
-                                        switch anime.status {
-                                        case .enEmision:
-                                            Color.orange
-                                                .opacity(0.6)
-                                        case .finalizado:
-                                            Color.green.opacity(0.6)
-                                        case .proximamente:
-                                            Color.black.opacity(0.6)
-                                        }
-                                    }
                                 Text(anime.status.rawValue)
                                     .foregroundColor(.white)
-                                    
                             }
                             
                         }
@@ -124,10 +112,40 @@ struct DetailView: View {
                                 Text("ver más")
                             }
                         }
+                        VStack(alignment: .leading){
+                            Text("Animes relacionados")
+                                .fontWeight(.bold)
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHGrid(rows: [GridItem()]) {
+                                    ForEach(vm.relatedAnimes(genre: anime.genresArray.first ?? "", currentAnime: anime)) { anime in
+                                        NavigationLink(value:anime) {
+                                            AsyncImage(url: anime.image) { image in
+                                                image
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width:100, height: 140)
+                                            } placeholder: {
+                                                Image("dissapointed-flower")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .padding().frame(width:100, height: 140)
+                                                    .background{
+                                                        Color.primary.opacity(0.2)
+                                                    }
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
                         Button {
                             //
                         } label: {
-                            Text("Ver más")
+                            Link(destination:anime.urlAnime) {
+                                Text("Más info")
+                                    .foregroundColor(.white)
+                            }
                         }
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
@@ -135,17 +153,33 @@ struct DetailView: View {
                     }
                     .padding()
                 }
-                .cornerRadius(10)
+                .cornerRadius(5)
                 .padding(.horizontal,10)
+            }
+            .toolbar {
+                ShareLink("Compartir", item: anime.urlAnime)
             }
         }
         .navigationBarTitle("", displayMode: .inline)
+    }
+    
+    func getStatusColor() -> Color {
+        switch anime.status {
+        case .enEmision:
+            return Color.orange.opacity(0.9)
+        case .finalizado:
+            return Color.green.opacity(0.9)
+        case .proximamente:
+            return Color.black.opacity(0.9)
+        }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(anime: .test)
-            .environmentObject(AnimesVM.preview)
+        NavigationStack {
+            DetailView(anime: .test)
+                .environmentObject(AnimesVM.preview)
+        }
     }
 }

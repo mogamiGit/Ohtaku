@@ -33,15 +33,13 @@ final class AnimesVM:ObservableObject {
     // Crear un apartado de animes relacionados con un filtro de géneros.
     
     var animesSearch:[Anime] {
-        let animesFiltered = animes.filter { anime in
+        animes.filter { anime in
             if search.isEmpty {
                 return true
             } else {
                 return anime.title.lowercased().contains(search.lowercased())
             }
-        }
-        
-        let sortedAnimes = animesFiltered.sorted { a1, a2 in
+        }.sorted { a1, a2 in
             switch sorted {
             case .title:
                 if changeSort == .ascending {
@@ -59,8 +57,6 @@ final class AnimesVM:ObservableObject {
                 return true
             }
         }
-        
-        return sortedAnimes
     }
     
     init(persistence:Persistence = .shared) {
@@ -82,12 +78,17 @@ final class AnimesVM:ObservableObject {
     }
     
     func starRate(num:Int, image:String) -> some View {
-        ForEach(1...num, id: \.self) { n in
+        ForEach(1...num, id: \.self) { _ in
             Image(systemName: image)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20)
                 .foregroundColor(Color.mainAcid)
         }
+    }
+    
+    func relatedAnimes(genre:String, currentAnime:Anime) -> [Anime] {
+        let related = animes.filter { $0.genres == genre && $0.id != currentAnime.id }.prefix(8)
+        return Array(related)
     }
 }
