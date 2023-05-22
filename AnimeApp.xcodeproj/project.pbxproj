@@ -22,6 +22,10 @@
 		D3440BAC29FFB58600C76755 /* animeTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3440BAB29FFB58600C76755 /* animeTest.json */; };
 		D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3440BAD29FFB82300C76755 /* DataTest.swift */; };
 		D3440BB029FFC70600C76755 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3440BAF29FFC70600C76755 /* AnimeCell.swift */; };
+		D3907A642A1927C300F82778 /* WacthListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A632A1927C300F82778 /* WacthListView.swift */; };
+		D3907A662A192AE900F82778 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A652A192AE900F82778 /* MainTabBar.swift */; };
+		D3907A682A192F9A00F82778 /* MoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */; };
+		D3DC0DEB2A1BD0E600AE34DB /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		D3440BAB29FFB58600C76755 /* animeTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animeTest.json; sourceTree = "<group>"; };
 		D3440BAD29FFB82300C76755 /* DataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTest.swift; sourceTree = "<group>"; };
 		D3440BAF29FFC70600C76755 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
+		D3907A632A1927C300F82778 /* WacthListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WacthListView.swift; sourceTree = "<group>"; };
+		D3907A652A192AE900F82778 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoDetailView.swift; sourceTree = "<group>"; };
+		D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,10 @@
 			children = (
 				D327F4A329F5209600C21B92 /* AnimeListView.swift */,
 				D330015A2A016427009A606F /* DetailView.swift */,
+				D3907A632A1927C300F82778 /* WacthListView.swift */,
+				D3907A652A192AE900F82778 /* MainTabBar.swift */,
+				D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */,
+				D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -229,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3907A662A192AE900F82778 /* MainTabBar.swift in Sources */,
 				D327F4A429F5209600C21B92 /* AnimeListView.swift in Sources */,
 				D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */,
 				D330015B2A016427009A606F /* DetailView.swift in Sources */,
@@ -238,6 +251,9 @@
 				D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */,
 				D327F4A229F5209600C21B92 /* AnimeAppApp.swift in Sources */,
 				D33D18212A1299B2004173FF /* TagType.swift in Sources */,
+				D3907A682A192F9A00F82778 /* MoreInfoDetailView.swift in Sources */,
+				D3907A642A1927C300F82778 /* WacthListView.swift in Sources */,
+				D3DC0DEB2A1BD0E600AE34DB /* GenresView.swift in Sources */,
 				D327F4BC29F5423600C21B92 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

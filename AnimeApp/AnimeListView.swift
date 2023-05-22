@@ -32,7 +32,19 @@ struct AnimeListView: View {
                         }
                     }
                 }
-                if vm.sorted != .none {
+                if vm.sorted == .type {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Menu("\(vm.byType.rawValue)") {
+                            ForEach(AnimesVM.animeByType.allCases) { type in
+                                Button {
+                                    vm.byType = type
+                                } label: {
+                                    Text(type.rawValue)
+                                }
+                            }
+                        }
+                    }
+                } else if vm.sorted != .none {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             changeOrder.toggle()

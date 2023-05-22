@@ -9,13 +9,14 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var vm:AnimesVM
+    @State var showMore = false
     
     let anime: Anime
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             switch anime.type {
-            case .anime :
+            case .anime:
                 Color.secondaryAcid
                     .ignoresSafeArea()
             case .especial:
@@ -34,7 +35,19 @@ struct DetailView: View {
                         .fill(.white)
                     LazyVStack(alignment: .leading, spacing: 20) {
                         VStack(alignment: .leading, spacing: 10) {
-                            TagType(anime: anime)
+                            HStack {
+                                TagType(anime: anime)
+                                Spacer()
+                                Button {
+                                    vm.watchedAnime(currentanime: anime)
+                                } label: {
+                                    Image(systemName: vm.isAnimeWatched(currentanime: anime) ? "heart.fill" : "heart")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20)
+                                }
+
+                            }
                             Text(anime.title)
                                 .font(.largeTitle)
                             HStack(spacing: 5){
@@ -107,9 +120,14 @@ struct DetailView: View {
                                 .font(.subheadline)
                                 .lineLimit(4)
                             Button {
-                                //
+                                showMore.toggle()
                             } label: {
                                 Text("ver más")
+                            }
+                            .sheet(isPresented: $showMore, onDismiss: {
+                                showMore.toggle()
+                            }) {
+                                MoreInfoDetailView(anime: anime, backAnimes: $showMore)
                             }
                         }
                         VStack(alignment: .leading){
@@ -134,7 +152,6 @@ struct DetailView: View {
                                                     }
                                             }
                                         }
-
                                     }
                                 }
                             }
