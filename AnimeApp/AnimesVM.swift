@@ -42,8 +42,6 @@ final class AnimesVM:ObservableObject {
     @Published var changeSort:sortChangeOrder = .ascending
     @Published var arrayWatchedAnimes:[Anime] = []
     
-    // Crear en la view del Detail un apartado que solo aparezca cuando tiene OVAS o pelis. Con una función que capture la primera palabra del título (o parte) y cree un filtrp para que pinte solo los que estén relacionados.
-    
     var animesSearch:[Anime] {
         animes.filter { anime in
             if search.isEmpty {

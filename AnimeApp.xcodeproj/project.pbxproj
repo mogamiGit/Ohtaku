@@ -25,6 +25,7 @@
 		D3907A642A1927C300F82778 /* WacthListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A632A1927C300F82778 /* WacthListView.swift */; };
 		D3907A662A192AE900F82778 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A652A192AE900F82778 /* MainTabBar.swift */; };
 		D3907A682A192F9A00F82778 /* MoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */; };
+		D3BA6F7E2A1C067000AEA425 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA6F7D2A1C067000AEA425 /* LaunchScreenView.swift */; };
 		D3DC0DEB2A1BD0E600AE34DB /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +49,9 @@
 		D3907A632A1927C300F82778 /* WacthListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WacthListView.swift; sourceTree = "<group>"; };
 		D3907A652A192AE900F82778 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoDetailView.swift; sourceTree = "<group>"; };
+		D3BA6F7D2A1C067000AEA425 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
+		D3DC0DEC2A1BFBF900AE34DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		D327F4A029F5209600C21B92 /* AnimeApp */ = {
 			isa = PBXGroup;
 			children = (
+				D3DC0DEC2A1BFBF900AE34DB /* Info.plist */,
 				D327F4BF29F544AD00C21B92 /* Views */,
 				D3440BB129FFC75C00C76755 /* Components */,
 				D327F4B029F5232700C21B92 /* ViewModels */,
@@ -155,6 +159,7 @@
 				D3907A652A192AE900F82778 /* MainTabBar.swift */,
 				D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */,
 				D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */,
+				D3BA6F7D2A1C067000AEA425 /* LaunchScreenView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */,
 				D330015B2A016427009A606F /* DetailView.swift in Sources */,
 				D327F4BA29F53D8A00C21B92 /* Extensions.swift in Sources */,
+				D3BA6F7E2A1C067000AEA425 /* LaunchScreenView.swift in Sources */,
 				D327F4B629F53A4200C21B92 /* AnimeModel.swift in Sources */,
 				D3440BB029FFC70600C76755 /* AnimeCell.swift in Sources */,
 				D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */,
@@ -386,9 +392,9 @@
 				DEVELOPMENT_TEAM = BK28MGPK85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnimeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -415,9 +421,9 @@
 				DEVELOPMENT_TEAM = BK28MGPK85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnimeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
