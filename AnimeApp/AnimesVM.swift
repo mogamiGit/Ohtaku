@@ -133,7 +133,6 @@ final class AnimesVM:ObservableObject {
         for anime in animes where anime.id == currentanime.id {
             if isAnimeWatched(currentanime: anime) {
                 arrayWatchedAnimes.removeAll(where: { $0.id == anime.id })
-                
                 do {
                     print(arrayWatchedAnimes)
                     try persistence.saveWatchedAnimes(array: arrayWatchedAnimes)
@@ -143,7 +142,6 @@ final class AnimesVM:ObservableObject {
                 print(arrayWatchedAnimes)
             } else {
                 arrayWatchedAnimes.append(anime)
-                
                 do {
                     try persistence.saveWatchedAnimes(array: arrayWatchedAnimes)
                 } catch {
