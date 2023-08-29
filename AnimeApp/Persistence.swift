@@ -22,42 +22,31 @@ final class Persistence {
     
     let fileLocation:FileLocation
     let watchedAnimesURL = URL.documentsDirectory.appending(path: "watchedAnimes.json")
-    let animesURL = URL.documentsDirectory.appending(path: "animes.json")
     
     init(fileLocation:FileLocation = FileProduction()) {
         self.fileLocation = fileLocation
     }
     
     func loadAnimes() throws -> [Anime] {
-        do {
-            let data = try Data(contentsOf: animesURL)
-            print(animesURL)
+        print(watchedAnimesURL)
+        if FileManager.default.fileExists(atPath: watchedAnimesURL.path()) {
+            let data = try Data(contentsOf: watchedAnimesURL)
             return try JSONDecoder().decode([Anime].self, from: data)
-        } catch {
+        } else {
             let data = try Data(contentsOf: fileLocation.fileURL)
-            let animes = try JSONDecoder().decode([Anime].self, from: data)
-            try? saveAnimes(animes: animes)
-            return animes
+            let realData = try JSONDecoder().decode([AnimeModel].self, from: data)
+            let localData = realData.map { $0.mapToModel() }
+            let localDataToEncode = try JSONEncoder().encode(localData)
+            try localDataToEncode.write(to: watchedAnimesURL, options: .atomic)
+            return try JSONDecoder().decode([Anime].self, from: localDataToEncode)
         }
     }
     
-    private func saveAnimes(animes: [Anime]) throws {
+    func saveWatchedJSON(animes: [Anime]) throws {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         let savedData = try encoder.encode(animes)
-        try savedData.write(to: animesURL)
-    }
-    
-    func saveWatchedAnimes(array:[Anime]) throws {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        let savedData = try encoder.encode(array)
         try savedData.write(to: watchedAnimesURL)
-        print(watchedAnimesURL)
     }
-    
-    func loadWatchedAnimes() throws -> [Anime] {
-        let data = try Data(contentsOf: watchedAnimesURL)
-        return try JSONDecoder().decode([Anime].self, from: data)
-    }
+
 }

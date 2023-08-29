@@ -8,16 +8,15 @@
 import Foundation
 
 // MARK: - AnimeModel
-struct Anime: Codable, Identifiable, Hashable {
-    let id = UUID()
+struct AnimeModel: Codable, Hashable {
     let title:String
     let description:String?
     let year:Int
-    let type:Types
+    let type:String
     let genres:String?
     let rateStart:String
     let votes:Int
-    let status:Status
+    let status:String
     let followers:Int
     let episodes:Int
     let urlAnime:URL
@@ -38,15 +37,15 @@ struct Anime: Codable, Identifiable, Hashable {
     }
 }
 
-enum Status: String, Codable {
-    case enEmision = "En emision"
-    case finalizado = "Finalizado"
-    case proximamente = "Proximamente"
-}
-
-enum Types: String, Codable {
-    case anime = "Anime"
-    case especial = "Especial"
-    case ova = "OVA"
-    case pelicula = "Película"
-}
+//enum Status: String, Codable {
+//    case enEmision = "En emision"
+//    case finalizado = "Finalizado"
+//    case proximamente = "Proximamente"
+//}
+//
+//enum Types: String, Codable {
+//    case anime = "Anime"
+//    case especial = "Especial"
+//    case ova = "OVA"
+//    case pelicula = "Película"
+//}

@@ -34,13 +34,14 @@ final class AnimesVM:ObservableObject {
     }
     
     let persistence:Persistence
+    var error:String = ""
     
     @Published var animes:[Anime]
     @Published var search = ""
     @Published var sorted:animeSortedBy = .none
     @Published var byType:animeByType = .none
     @Published var changeSort:sortChangeOrder = .ascending
-    @Published var arrayWatchedAnimes:[Anime] = []
+//    @Published var arrayWatchedAnimes:[AnimeModel] = []
     
     var animesSearch:[Anime] {
         animes.filter { anime in
@@ -89,16 +90,12 @@ final class AnimesVM:ObservableObject {
     }
     
     init(persistence:Persistence = .shared) {
+        self.persistence = persistence
         do {
-            self.persistence = persistence
             self.animes = try persistence.loadAnimes()
-            if FileManager.default.fileExists(atPath: persistence.watchedAnimesURL.path()) {
-                self.arrayWatchedAnimes = try persistence.loadWatchedAnimes()
-            }
         } catch {
-            debugPrint(error)
+            print("Error VM \(error)")
             self.animes = []
-            self.arrayWatchedAnimes = []
         }
     }
     
@@ -125,30 +122,20 @@ final class AnimesVM:ObservableObject {
         return Array(related)
     }
     
-    func isAnimeWatched(currentanime:Anime) -> Bool {
-        arrayWatchedAnimes.contains(where: { $0.id == currentanime.id })
-    }
-    
-    func watchedAnime(currentanime:Anime) {
-        for anime in animes where anime.id == currentanime.id {
-            if isAnimeWatched(currentanime: anime) {
-                arrayWatchedAnimes.removeAll(where: { $0.id == anime.id })
-                do {
-                    print(arrayWatchedAnimes)
-                    try persistence.saveWatchedAnimes(array: arrayWatchedAnimes)
-                } catch {
-                    print("error al guardar")
-                }
-                print(arrayWatchedAnimes)
-            } else {
-                arrayWatchedAnimes.append(anime)
-                do {
-                    try persistence.saveWatchedAnimes(array: arrayWatchedAnimes)
-                } catch {
-                    print("error al guardar")
-                }
-                print(arrayWatchedAnimes)
+    func toggleWatched(anime: Anime) {
+        if let index = animes.firstIndex(where: { $0.id == anime.id }) {
+            animes[index].isWatched.toggle()
+            
+            do {
+                try persistence.saveWatchedJSON(animes: animes)
+            } catch {
+                print("Error toggleWatched \(error)")
+                self.error = error.localizedDescription
             }
         }
+    }
+    
+    func recoverWatchedAnimes() -> [Anime] {
+        return animes.filter { $0.isWatched == true }
     }
 }

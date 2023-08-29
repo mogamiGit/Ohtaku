@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @EnvironmentObject var vm:AnimesVM
     @State var showMore = false
+    @State var isWatched:Bool
     
     let anime: Anime
     
@@ -28,6 +29,9 @@ struct DetailView: View {
             case .pelicula:
                 Color.secondaryAcidTwo
                     .ignoresSafeArea()
+            case .unknown:
+                Color.gray
+                    .ignoresSafeArea()
             }
             ScrollView {
                 ZStack(alignment: .top) {
@@ -39,9 +43,10 @@ struct DetailView: View {
                                 TagType(anime: anime)
                                 Spacer()
                                 Button {
-                                    vm.watchedAnime(currentanime: anime)
+                                    vm.toggleWatched(anime: anime)
+                                    isWatched.toggle()
                                 } label: {
-                                    Image(systemName: vm.isAnimeWatched(currentanime: anime) ? "heart.fill" : "heart")
+                                    Image(systemName: isWatched ? "eye.fill" : "eye")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 20)
@@ -188,6 +193,8 @@ struct DetailView: View {
             return Color.green.opacity(0.9)
         case .proximamente:
             return Color.black.opacity(0.9)
+        case .unknown:
+            return Color.gray.opacity(0.9)
         }
     }
 }
@@ -195,7 +202,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            DetailView(anime: .test)
+            DetailView(isWatched: true, anime: .test)
                 .environmentObject(AnimesVM.preview)
         }
     }

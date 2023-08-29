@@ -61,7 +61,7 @@ struct AnimeListView: View {
             }
             .animation(.default, value: vm.search)
             .navigationDestination(for: Anime.self) { anime in
-                DetailView(anime: anime)
+                DetailView(isWatched: anime.isWatched, anime: anime)
             }
             .listStyle(.grouped)
         }

@@ -12,12 +12,12 @@ struct WacthListView: View {
     
     var body: some View {
         NavigationStack {
-            if vm.arrayWatchedAnimes.isEmpty {
+            if vm.recoverWatchedAnimes().isEmpty {
                 Text("No hay animes vistos")
             }
             ScrollView {
                 LazyVGrid(columns: [GridItem(),GridItem()]) {
-                    ForEach(vm.arrayWatchedAnimes) { anime in
+                    ForEach(vm.recoverWatchedAnimes()) { anime in
                         AsyncImage(url: anime.image) { image in
                             image
                                 .resizable()

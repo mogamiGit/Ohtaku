@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D31CEE542A9CDD0500D81FC9 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31CEE532A9CDD0500D81FC9 /* Anime.swift */; };
 		D327F4A229F5209600C21B92 /* AnimeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4A129F5209600C21B92 /* AnimeAppApp.swift */; };
 		D327F4A429F5209600C21B92 /* AnimeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327F4A329F5209600C21B92 /* AnimeListView.swift */; };
 		D327F4A629F5209700C21B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D327F4A529F5209700C21B92 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D31CEE532A9CDD0500D81FC9 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		D327F49E29F5209600C21B92 /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D327F4A129F5209600C21B92 /* AnimeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAppApp.swift; sourceTree = "<group>"; };
 		D327F4A329F5209600C21B92 /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				D327F4B529F53A4200C21B92 /* AnimeModel.swift */,
 				D327F4BB29F5423600C21B92 /* Persistence.swift */,
+				D31CEE532A9CDD0500D81FC9 /* Anime.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31CEE542A9CDD0500D81FC9 /* Anime.swift in Sources */,
 				D3907A662A192AE900F82778 /* MainTabBar.swift in Sources */,
 				D327F4A429F5209600C21B92 /* AnimeListView.swift in Sources */,
 				D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */,

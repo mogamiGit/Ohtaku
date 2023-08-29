@@ -25,6 +25,8 @@ struct TagType: View {
                     Color.accentAcid
                 case .pelicula:
                     Color.secondaryAcidTwo
+                case .unknown:
+                    Color.gray
                 }
             }
     }
