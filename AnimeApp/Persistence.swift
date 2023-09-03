@@ -28,7 +28,7 @@ final class Persistence {
     }
     
     func loadAnimes() throws -> [Anime] {
-        print(watchedAnimesURL)
+//        print(watchedAnimesURL)
         if FileManager.default.fileExists(atPath: watchedAnimesURL.path()) {
             let data = try Data(contentsOf: watchedAnimesURL)
             return try JSONDecoder().decode([Anime].self, from: data)

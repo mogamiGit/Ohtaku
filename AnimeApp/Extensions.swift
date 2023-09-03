@@ -12,4 +12,5 @@ extension Color {
     static let secondaryAcid = Color("Secondary Acid")
     static let secondaryAcidTwo = Color("Secondary2 Acid")
     static let accentAcid = Color("Accent Acid")
+    static let backgroundAcid = Color("Background Acid")
 }

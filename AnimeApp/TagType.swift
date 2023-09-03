@@ -12,7 +12,7 @@ struct TagType: View {
     
     var body: some View {
         Text(anime.type.rawValue)
-            .font(.subheadline)
+            .font(.callout)
             .foregroundColor(.black)
             .padding(5)
             .background{

@@ -11,12 +11,17 @@ struct AnimeListView: View {
     @EnvironmentObject var vm:AnimesVM
     @State var changeOrder = false
     
+//    init() {
+//        UIScrollView.appearance().bounces = false
+//    }
+    
     var body: some View {
         NavigationStack {
             List(vm.animesSearch) { anime in
                 NavigationLink(value: anime) {
                     AnimeCell(anime: anime)
                 }
+//              .listRowBackground(Color.backgroundAcid)
             }
             .searchable(text: $vm.search)
             .toolbar{
@@ -59,6 +64,8 @@ struct AnimeListView: View {
                     }
                 }
             }
+            .toolbarBackground(Color.backgroundAcid, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .animation(.default, value: vm.search)
             .navigationDestination(for: Anime.self) { anime in
                 DetailView(isWatched: anime.isWatched, anime: anime)

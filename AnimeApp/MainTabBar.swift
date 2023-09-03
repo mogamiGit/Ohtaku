@@ -10,16 +10,21 @@ import SwiftUI
 struct MainTabBar: View {
     var body: some View {
         TabView {
-            AnimeListView()
-                .tabItem {
-                    Label("Anime", systemImage: "star")
-                }
-            WacthListView()
-                .tabItem {
-                    Label("Watch list", systemImage: "eye")
-                }
+            Group {
+                AnimeListView()
+                    .tabItem {
+                        Label("Anime", systemImage: "list.triangle")
+                    }
+                WacthListView()
+                    .tabItem {
+                        Label("Watch list", systemImage: "eye")
+                    }
+            }
+            .toolbarBackground(Color.backgroundAcid
+                               , for: .tabBar)
+            .toolbarBackground(.visible, for: .tabBar)
         }
-        .tint(.blue)
+        .tint(Color.mainAcid)
     }
 }
 

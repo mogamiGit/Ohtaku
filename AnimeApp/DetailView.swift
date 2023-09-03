@@ -34,10 +34,10 @@ struct DetailView: View {
                     .ignoresSafeArea()
             }
             ScrollView {
-                ZStack(alignment: .top) {
+                ZStack() {
                     Rectangle()
-                        .fill(.white)
-                    LazyVStack(alignment: .leading, spacing: 20) {
+                        .fill(.background)
+                    LazyVStack(alignment: .center, spacing: 20) {
                         VStack(alignment: .leading, spacing: 10) {
                             HStack {
                                 TagType(anime: anime)
@@ -49,9 +49,10 @@ struct DetailView: View {
                                     Image(systemName: isWatched ? "eye.fill" : "eye")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 20)
+                                        .frame(width: 30)
+                                        .tint(Color.mainAcid)
                                 }
-
+                                
                             }
                             Text(anime.title)
                                 .font(.largeTitle)
@@ -68,134 +69,104 @@ struct DetailView: View {
                                 }
                             }
                         }
-                        ZStack(alignment: .bottom) {
-                            AsyncImage(url: anime.image) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                            } placeholder: {
-                                Image("dissapointed-flower")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(70)
-                                    .background{ Color.primary.opacity(0.2) }
-                            }
-                            ZStack {
-                                Rectangle()
-                                    .fill(getStatusColor())
-                                    .frame(height: 50)
-                                Text(anime.status.rawValue)
-                                    .foregroundColor(.white)
-                            }
-                            
-                        }
-                        Text("\(anime.episodes) Episodios")
-                            .font(.title3)
-                        HStack(spacing: 20) {
-                            VStack(alignment: .leading) {
-                                Text("Calificación")
-                                    .fontWeight(.bold)
-                                LazyHStack {
-                                    ZStack(alignment: .leading) {
-                                        HStack {
-                                            vm.starRate(num:5, image: "star")
-                                        }
-                                        HStack {
-                                            vm.starRate(num:anime.rateInt, image: "star.fill")
-                                        }
-                                    }
-                                    Text(anime.rateStart)
-                                }
-                            }
-                            Divider()
-                            VStack(alignment: .leading) {
-                                Text("Votos")
-                                    .fontWeight(.bold)
-                                Text("\(anime.votes)")
-                            }
-                            .padding(8)
-                            .background{
-                                Color.accentAcid.opacity(0.6)
-                            }
-                        }
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("Sinopsis")
-                                .fontWeight(.bold)
-                            Text(anime.description ?? "")
-                                .font(.subheadline)
-                                .lineLimit(4)
-                            Button {
-                                showMore.toggle()
-                            } label: {
-                                Text("ver más")
-                            }
-                            .sheet(isPresented: $showMore, onDismiss: {
-                                showMore.toggle()
-                            }) {
-                                MoreInfoDetailView(anime: anime, backAnimes: $showMore)
-                            }
-                        }
-                        VStack(alignment: .leading){
-                            Text("Animes relacionados")
-                                .fontWeight(.bold)
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHGrid(rows: [GridItem()]) {
-                                    ForEach(vm.relatedAnimes(genre: anime.genresArray.first ?? "", currentAnime: anime)) { anime in
-                                        NavigationLink(value:anime) {
-                                            AsyncImage(url: anime.image) { image in
-                                                image
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width:100, height: 140)
-                                            } placeholder: {
-                                                Image("dissapointed-flower")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .padding().frame(width:100, height: 140)
-                                                    .background{
-                                                        Color.primary.opacity(0.2)
-                                                    }
+                        PosterDetailView(anime: anime)
+                        VStack(alignment: .leading, spacing: 25) {
+                            Text("\(anime.episodes) Episodios")
+                                .font(.title2)
+                            HStack(spacing: 20) {
+                                VStack(alignment: .leading) {
+                                    Text("Calificación")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                    LazyHStack {
+                                        ZStack(alignment: .leading) {
+                                            HStack {
+                                                vm.starRate(num:5, image: "seal")
+                                            }
+                                            HStack {
+                                                vm.starRate(num:anime.rateInt, image: "seal.fill")
                                             }
                                         }
+                                        Text(anime.rateStart)
                                     }
                                 }
+                                Spacer()
+                                Divider()
+                                Spacer()
+                                VStack() {
+                                    Text("\(anime.votes)")
+                                        .fontWeight(.bold)
+                                    Text("Votos")
+                                }
+                                .padding()
+                                .foregroundColor(.black)
+                                .background{
+                                    Color.accentAcid.opacity(0.6)
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
                             }
-                        }
-                        Button {
-                            //
-                        } label: {
-                            Link(destination:anime.urlAnime) {
-                                Text("Más info")
-                                    .foregroundColor(.white)
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("Sinopsis")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                Text(anime.description ?? "")
+                                    .font(.body)
+                                    .lineLimit(4)
+                                Button {
+                                    showMore.toggle()
+                                } label: {
+                                    Text("ver más")
+                                }
+                                .sheet(isPresented: $showMore, onDismiss: {
+                                    showMore.toggle()
+                                }) {
+                                    MoreInfoDetailView(anime: anime, backAnimes: $showMore)
+                                        .presentationDetents([.fraction(0.8)])
+                                }
                             }
+                            Button {
+                                //
+                            } label: {
+                                Link(destination:anime.urlAnime) {
+                                    Text("Más información")
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .controlSize(.large)
+                            .tint(Color.mainAcid)
+                            .padding(.vertical)
                         }
-                        .buttonStyle(.borderedProminent)
-                        .controlSize(.large)
-                        .padding(.bottom)
                     }
                     .padding()
                 }
-                .cornerRadius(5)
+                .cornerRadius(8)
                 .padding(.horizontal,10)
+                VStack(alignment: .leading){
+                    Text("Animes relacionados")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .padding(.horizontal)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: [GridItem()]) {
+                            ForEach(vm.relatedAnimes(genre: anime.genresArray.first ?? "", currentAnime: anime)) { anime in
+                                NavigationLink(value:anime) {
+                                    PosterView(anime: anime)
+                                        .padding(.leading)
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding(.vertical, 30)
+                
             }
             .toolbar {
                 ShareLink("Compartir", item: anime.urlAnime)
             }
         }
         .navigationBarTitle("", displayMode: .inline)
-    }
-    
-    func getStatusColor() -> Color {
-        switch anime.status {
-        case .enEmision:
-            return Color.orange.opacity(0.9)
-        case .finalizado:
-            return Color.green.opacity(0.9)
-        case .proximamente:
-            return Color.black.opacity(0.9)
-        case .unknown:
-            return Color.gray.opacity(0.9)
-        }
     }
 }
 
@@ -204,6 +175,49 @@ struct DetailView_Previews: PreviewProvider {
         NavigationStack {
             DetailView(isWatched: true, anime: .test)
                 .environmentObject(AnimesVM.preview)
+        }
+    }
+}
+
+struct PosterDetailView: View {
+    let anime: Anime
+    
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            AsyncImage(url: anime.image) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                Image("dissapointed-flower")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(70)
+                    .background{ Color.primary.opacity(0.2) }
+            }
+            ZStack {
+                Rectangle()
+                    .fill(getStatusColor())
+                    .frame(height: 50)
+                Text(anime.status.rawValue)
+                    .foregroundColor(.white)
+            }
+            
+        }
+        .frame(maxWidth: 500)
+        .cornerRadius(5)
+    }
+    
+    func getStatusColor() -> Color {
+        switch anime.status {
+        case .enEmision:
+            return Color.secondaryAcidTwo.opacity(0.9)
+        case .finalizado:
+            return Color.black.opacity(0.9)
+        case .proximamente:
+            return Color.accentAcid.opacity(0.9)
+        case .unknown:
+            return Color.gray.opacity(0.9)
         }
     }
 }

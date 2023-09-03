@@ -14,7 +14,8 @@ struct LaunchScreenView: View {
         ZStack {
             Color.secondaryAcid.ignoresSafeArea()
             ZStack {
-                Image("acid-sun").resizable()
+                Image("acid-sun")
+                    .resizable()
                     .scaledToFit()
                     .frame(width: 150)
             }

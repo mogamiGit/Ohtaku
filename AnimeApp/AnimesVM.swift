@@ -41,7 +41,6 @@ final class AnimesVM:ObservableObject {
     @Published var sorted:animeSortedBy = .none
     @Published var byType:animeByType = .none
     @Published var changeSort:sortChangeOrder = .ascending
-//    @Published var arrayWatchedAnimes:[AnimeModel] = []
     
     var animesSearch:[Anime] {
         animes.filter { anime in

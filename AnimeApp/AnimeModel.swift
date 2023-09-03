@@ -22,30 +22,9 @@ struct AnimeModel: Codable, Hashable {
     let urlAnime:URL
     let image:URL
     
-    var genresArray: [String] {
-        genres?.components(separatedBy: ",") ?? ["No genres"]
-    }
-    
-    var rateInt: Int {
-        Int(Double(rateStart) ?? 0.0)
-    }
-    
     enum CodingKeys: String, CodingKey {
         case title, description, year, type, votes, status, followers, episodes,image, genres
         case rateStart = "rate_start"
         case urlAnime = "url_anime"
     }
 }
-
-//enum Status: String, Codable {
-//    case enEmision = "En emision"
-//    case finalizado = "Finalizado"
-//    case proximamente = "Proximamente"
-//}
-//
-//enum Types: String, Codable {
-//    case anime = "Anime"
-//    case especial = "Especial"
-//    case ova = "OVA"
-//    case pelicula = "Película"
-//}

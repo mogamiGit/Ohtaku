@@ -23,16 +23,16 @@
 		D3440BAC29FFB58600C76755 /* animeTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3440BAB29FFB58600C76755 /* animeTest.json */; };
 		D3440BAE29FFB82300C76755 /* DataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3440BAD29FFB82300C76755 /* DataTest.swift */; };
 		D3440BB029FFC70600C76755 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3440BAF29FFC70600C76755 /* AnimeCell.swift */; };
+		D34C54452AA4E43D0072DC96 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34C54442AA4E43D0072DC96 /* PosterView.swift */; };
 		D3907A642A1927C300F82778 /* WacthListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A632A1927C300F82778 /* WacthListView.swift */; };
 		D3907A662A192AE900F82778 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A652A192AE900F82778 /* MainTabBar.swift */; };
 		D3907A682A192F9A00F82778 /* MoreInfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */; };
 		D3BA6F7E2A1C067000AEA425 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA6F7D2A1C067000AEA425 /* LaunchScreenView.swift */; };
-		D3DC0DEB2A1BD0E600AE34DB /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D31CEE532A9CDD0500D81FC9 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
-		D327F49E29F5209600C21B92 /* AnimeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D327F49E29F5209600C21B92 /* Ohtaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohtaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D327F4A129F5209600C21B92 /* AnimeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAppApp.swift; sourceTree = "<group>"; };
 		D327F4A329F5209600C21B92 /* AnimeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListView.swift; sourceTree = "<group>"; };
 		D327F4A529F5209700C21B92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,11 +48,11 @@
 		D3440BAB29FFB58600C76755 /* animeTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animeTest.json; sourceTree = "<group>"; };
 		D3440BAD29FFB82300C76755 /* DataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTest.swift; sourceTree = "<group>"; };
 		D3440BAF29FFC70600C76755 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
+		D34C54442AA4E43D0072DC96 /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		D3907A632A1927C300F82778 /* WacthListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WacthListView.swift; sourceTree = "<group>"; };
 		D3907A652A192AE900F82778 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoDetailView.swift; sourceTree = "<group>"; };
 		D3BA6F7D2A1C067000AEA425 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 		D3DC0DEC2A1BFBF900AE34DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +78,7 @@
 		D327F49F29F5209600C21B92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D327F49E29F5209600C21B92 /* AnimeApp.app */,
+				D327F49E29F5209600C21B92 /* Ohtaku.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,8 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				D327F4B529F53A4200C21B92 /* AnimeModel.swift */,
-				D327F4BB29F5423600C21B92 /* Persistence.swift */,
 				D31CEE532A9CDD0500D81FC9 /* Anime.swift */,
+				D327F4BB29F5423600C21B92 /* Persistence.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -161,7 +161,6 @@
 				D3907A632A1927C300F82778 /* WacthListView.swift */,
 				D3907A652A192AE900F82778 /* MainTabBar.swift */,
 				D3907A672A192F9A00F82778 /* MoreInfoDetailView.swift */,
-				D3DC0DEA2A1BD0E600AE34DB /* GenresView.swift */,
 				D3BA6F7D2A1C067000AEA425 /* LaunchScreenView.swift */,
 			);
 			name = Views;
@@ -172,6 +171,7 @@
 			children = (
 				D33D18202A1299B2004173FF /* TagType.swift */,
 				D3440BAF29FFC70600C76755 /* AnimeCell.swift */,
+				D34C54442AA4E43D0072DC96 /* PosterView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D327F49D29F5209600C21B92 /* AnimeApp */ = {
+		D327F49D29F5209600C21B92 /* Ohtaku */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D327F4AC29F5209700C21B92 /* Build configuration list for PBXNativeTarget "AnimeApp" */;
+			buildConfigurationList = D327F4AC29F5209700C21B92 /* Build configuration list for PBXNativeTarget "Ohtaku" */;
 			buildPhases = (
 				D327F49A29F5209600C21B92 /* Sources */,
 				D327F49B29F5209600C21B92 /* Frameworks */,
@@ -191,9 +191,9 @@
 			);
 			dependencies = (
 			);
-			name = AnimeApp;
+			name = Ohtaku;
 			productName = AnimeApp;
-			productReference = D327F49E29F5209600C21B92 /* AnimeApp.app */;
+			productReference = D327F49E29F5209600C21B92 /* Ohtaku.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -211,7 +211,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D327F49929F5209600C21B92 /* Build configuration list for PBXProject "AnimeApp" */;
+			buildConfigurationList = D327F49929F5209600C21B92 /* Build configuration list for PBXProject "Ohtaku" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -224,7 +224,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D327F49D29F5209600C21B92 /* AnimeApp */,
+				D327F49D29F5209600C21B92 /* Ohtaku */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +252,7 @@
 				D31CEE542A9CDD0500D81FC9 /* Anime.swift in Sources */,
 				D3907A662A192AE900F82778 /* MainTabBar.swift in Sources */,
 				D327F4A429F5209600C21B92 /* AnimeListView.swift in Sources */,
+				D34C54452AA4E43D0072DC96 /* PosterView.swift in Sources */,
 				D327F4BE29F543FE00C21B92 /* AnimesVM.swift in Sources */,
 				D330015B2A016427009A606F /* DetailView.swift in Sources */,
 				D327F4BA29F53D8A00C21B92 /* Extensions.swift in Sources */,
@@ -263,7 +264,6 @@
 				D33D18212A1299B2004173FF /* TagType.swift in Sources */,
 				D3907A682A192F9A00F82778 /* MoreInfoDetailView.swift in Sources */,
 				D3907A642A1927C300F82778 /* WacthListView.swift in Sources */,
-				D3DC0DEB2A1BD0E600AE34DB /* GenresView.swift in Sources */,
 				D327F4BC29F5423600C21B92 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +446,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D327F49929F5209600C21B92 /* Build configuration list for PBXProject "AnimeApp" */ = {
+		D327F49929F5209600C21B92 /* Build configuration list for PBXProject "Ohtaku" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D327F4AA29F5209700C21B92 /* Debug */,
@@ -455,7 +455,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D327F4AC29F5209700C21B92 /* Build configuration list for PBXNativeTarget "AnimeApp" */ = {
+		D327F4AC29F5209700C21B92 /* Build configuration list for PBXNativeTarget "Ohtaku" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D327F4AD29F5209700C21B92 /* Debug */,

@@ -12,22 +12,35 @@ struct MoreInfoDetailView: View {
     @Binding var backAnimes:Bool
     
     var body: some View {
-        VStack(alignment: .trailing, spacing: 20) {
-            Button {
-                backAnimes.toggle()
-            } label: {
-                Image(systemName: "x.square.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:30)
+        VStack(alignment: .trailing, spacing: 0) {
+            VStack() {
+                ZStack(alignment: .trailing) {
+                    Rectangle()
+                        .fill(Color.backgroundAcid)
+                        .frame(height: 60)
+                        .ignoresSafeArea()
+                    Button {
+                        backAnimes.toggle()
+                    } label: {
+                        Image(systemName: "xmark.square.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:30)
+                            .tint(Color.black)
+                            .padding(.horizontal)
+                    }
+                }
             }
-            Text(anime.description ?? "")
-            Spacer()
+            ScrollView {
+                Text(anime.description ?? "")
+                    .font(.body)
+                    .padding(30)
+            }
         }
-        .padding()
         .onDisappear{
             backAnimes = false
         }
+        .ignoresSafeArea()
     }
 }
 

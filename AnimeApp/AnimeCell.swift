@@ -25,6 +25,7 @@ struct AnimeCell: View {
                         .frame(width: 150, height: 220)
                         .background{ Color.primary.opacity(0.2) }
                 }
+                .cornerRadius(5)
                 TagType(anime: anime)
                     .padding(8)
             }

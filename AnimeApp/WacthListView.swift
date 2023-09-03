@@ -13,28 +13,45 @@ struct WacthListView: View {
     var body: some View {
         NavigationStack {
             if vm.recoverWatchedAnimes().isEmpty {
-                Text("No hay animes vistos")
-            }
-            ScrollView {
-                LazyVGrid(columns: [GridItem(),GridItem()]) {
-                    ForEach(vm.recoverWatchedAnimes()) { anime in
-                        AsyncImage(url: anime.image) { image in
-                            image
+                ZStack {
+                    Color.mainAcid.ignoresSafeArea()
+                    ZStack {
+                        VStack {
+                            Image("empty-head")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width:100, height: 140)
-                        } placeholder: {
-                            Image("dissapointed-flower")
-                                .resizable()
-                                .scaledToFit()
-                                .padding().frame(width:100, height: 140)
-                                .background{
-                                    Color.primary.opacity(0.2)
-                                }
+                                .padding(.horizontal, 50)
+                                .padding(.vertical)
+                            Text("Todavía no hay animes vistos")
+                                .font(.title3)
+                                .foregroundColor(.white)
                         }
                     }
                 }
-                .padding(.horizontal)
+            } else {
+                NavigationStack {
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(),GridItem()]) {
+                            ForEach(vm.recoverWatchedAnimes()) { anime in
+                                NavigationLink(value: anime) {
+                                    VStack(spacing: 20) {
+                                        PosterView(anime: anime)
+                                        Text(anime.title)
+                                            .font(.title3)
+                                            .frame(maxWidth: 150)
+                                            .lineLimit(1)
+                                    }
+                                    .padding(.bottom)
+                                }
+                            }
+                        }
+                        .padding()
+                    }
+                }
+                .navigationTitle("Mi lista")
+                .navigationDestination(for: Anime.self) { anime in
+                    DetailView(isWatched: anime.isWatched, anime: anime)
+                }
             }
         }
     }
@@ -43,5 +60,6 @@ struct WacthListView: View {
 struct WacthListView_Previews: PreviewProvider {
     static var previews: some View {
         WacthListView()
+            .environmentObject(AnimesVM.preview)
     }
 }
