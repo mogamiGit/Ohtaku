@@ -23,7 +23,7 @@ struct WacthListView: View {
                                 .padding(.horizontal, 50)
                                 .padding(.vertical)
                             Text("Todavía no hay animes vistos")
-                                .font(.title3)
+                                .font(.title2)
                                 .foregroundColor(.white)
                         }
                     }
