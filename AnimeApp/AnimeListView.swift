@@ -11,6 +11,7 @@ struct AnimeListView: View {
     @EnvironmentObject var vm:AnimesVM
     @State var changeOrder = false
     
+    
 //    init() {
 //        UIScrollView.appearance().bounces = false
 //    }
@@ -21,7 +22,6 @@ struct AnimeListView: View {
                 NavigationLink(value: anime) {
                     AnimeCell(anime: anime)
                 }
-//              .listRowBackground(Color.backgroundAcid)
             }
             .searchable(text: $vm.search)
             .toolbar{

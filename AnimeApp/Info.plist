@@ -5,11 +5,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>splash-sun-icon</string>
-		<key>UIColorName</key>
-		<string>Main Acid</string>
-		<key>UIImageRespectsSafeAreaInsets</key>
-		<true/>
+		<string></string>
 	</dict>
 </dict>
 </plist>

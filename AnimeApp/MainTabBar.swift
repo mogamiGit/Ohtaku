@@ -8,23 +8,34 @@
 import SwiftUI
 
 struct MainTabBar: View {
+    @State var isActive = false
+    
     var body: some View {
-        TabView {
-            Group {
-                AnimeListView()
-                    .tabItem {
-                        Label("Anime", systemImage: "list.triangle")
-                    }
-                WacthListView()
-                    .tabItem {
-                        Label("Watch list", systemImage: "eye")
-                    }
+        if isActive {
+            TabView {
+                Group {
+                    AnimeListView()
+                        .tabItem {
+                            Label("Anime", systemImage: "list.triangle")
+                        }
+                    WacthListView()
+                        .tabItem {
+                            Label("Watch list", systemImage: "eye")
+                        }
+                }
+                .toolbarBackground(Color.backgroundAcid
+                                   , for: .tabBar)
+                .toolbarBackground(.visible, for: .tabBar)
             }
-            .toolbarBackground(Color.backgroundAcid
-                               , for: .tabBar)
-            .toolbarBackground(.visible, for: .tabBar)
+            .tint(Color.mainAcid)
+        } else {
+            SplashScreenView()
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    self.isActive = true
+                }
+            }
         }
-        .tint(Color.mainAcid)
     }
 }
 

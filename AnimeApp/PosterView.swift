@@ -22,7 +22,8 @@ struct PosterView: View {
             Image("dissapointed-flower")
                 .resizable()
                 .scaledToFit()
-                .padding().frame(width:100, height: 140)
+                .frame(width:140, height: 180)
+                .padding(40)
                 .background{
                     Color.primary.opacity(0.2)
                 }
