@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TagType: View {
-    let anime: Anime
+    let anime: AnimeModel
     
     var body: some View {
         Text(anime.type.rawValue)

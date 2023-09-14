@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnimeCell: View {
-    let anime: Anime
+    let anime: AnimeModel
     
     var body: some View {
         HStack(alignment: .center) {

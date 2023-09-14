@@ -49,7 +49,7 @@ struct WacthListView: View {
                     }
                 }
                 .navigationTitle("Mi lista")
-                .navigationDestination(for: Anime.self) { anime in
+                .navigationDestination(for: AnimeModel.self) { anime in
                     DetailView(isWatched: anime.isWatched, anime: anime)
                 }
             }

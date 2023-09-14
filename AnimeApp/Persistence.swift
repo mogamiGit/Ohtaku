@@ -27,22 +27,21 @@ final class Persistence {
         self.fileLocation = fileLocation
     }
     
-    func loadAnimes() throws -> [Anime] {
-//        print(watchedAnimesURL)
+    func loadAnimes() throws -> [AnimeModel] {
         if FileManager.default.fileExists(atPath: watchedAnimesURL.path()) {
             let data = try Data(contentsOf: watchedAnimesURL)
-            return try JSONDecoder().decode([Anime].self, from: data)
+            return try JSONDecoder().decode([AnimeModel].self, from: data)
         } else {
             let data = try Data(contentsOf: fileLocation.fileURL)
-            let realData = try JSONDecoder().decode([AnimeModel].self, from: data)
+            let realData = try JSONDecoder().decode([AnimeDTO].self, from: data)
             let localData = realData.map { $0.mapToModel() }
             let localDataToEncode = try JSONEncoder().encode(localData)
             try localDataToEncode.write(to: watchedAnimesURL, options: .atomic)
-            return try JSONDecoder().decode([Anime].self, from: localDataToEncode)
+            return try JSONDecoder().decode([AnimeModel].self, from: localDataToEncode)
         }
     }
     
-    func saveWatchedJSON(animes: [Anime]) throws {
+    func saveWatchedJSON(animes: [AnimeModel]) throws {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         let savedData = try encoder.encode(animes)

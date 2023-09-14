@@ -9,18 +9,14 @@ import Foundation
 import SwiftUI
 
 final class AnimesVM:ObservableObject {
-    enum animeSortedBy: String, CaseIterable, Identifiable {
-        var id: animeSortedBy { self }
-        
+    enum AnimeSortedBy: String, CaseIterable {
         case title = "Por título"
         case year = "Por año"
         case type = "Por tipo"
         case none = "Ninguno"
     }
     
-    enum animeByType: String, CaseIterable, Identifiable {
-        var id: animeByType { self }
-        
+    enum AnimeByType: String, CaseIterable {
         case anime = "Anime"
         case especial = "Especial"
         case ova = "OVA"
@@ -28,7 +24,7 @@ final class AnimesVM:ObservableObject {
         case none = "Ninguno"
     }
     
-    enum sortChangeOrder {
+    enum SortChangeOrder {
         case ascending
         case descending
     }
@@ -36,13 +32,13 @@ final class AnimesVM:ObservableObject {
     let persistence:Persistence
     var error:String = ""
     
-    @Published var animes:[Anime]
+    @Published var animes:[AnimeModel]
     @Published var search = ""
-    @Published var sorted:animeSortedBy = .none
-    @Published var byType:animeByType = .none
-    @Published var changeSort:sortChangeOrder = .ascending
+    @Published var sorted:AnimeSortedBy = .none
+    @Published var byType:AnimeByType = .none
+    @Published var changeSort:SortChangeOrder = .ascending
     
-    var animesSearch:[Anime] {
+    var animesSearch:[AnimeModel] {
         animes.filter { anime in
             if search.isEmpty {
                 return true
@@ -105,23 +101,13 @@ final class AnimesVM:ObservableObject {
             changeSort = .ascending
         }
     }
-    
-    func starRate(num:Int, image:String) -> some View {
-        ForEach(1...num, id: \.self) { _ in
-            Image(systemName: image)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 20)
-                .foregroundColor(Color.mainAcid)
-        }
-    }
-    
-    func relatedAnimes(genre:String, currentAnime:Anime) -> [Anime] {
+        
+    func relatedAnimes(genre:String, currentAnime:AnimeModel) -> [AnimeModel] {
         let related = animes.filter { $0.genres == genre && $0.id != currentAnime.id }.prefix(8)
         return Array(related)
     }
     
-    func toggleWatched(anime: Anime) {
+    func toggleWatched(anime: AnimeModel) {
         if let index = animes.firstIndex(where: { $0.id == anime.id }) {
             animes[index].isWatched.toggle()
             
@@ -134,7 +120,7 @@ final class AnimesVM:ObservableObject {
         }
     }
     
-    func recoverWatchedAnimes() -> [Anime] {
+    func recoverWatchedAnimes() -> [AnimeModel] {
         return animes.filter { $0.isWatched == true }
     }
 }

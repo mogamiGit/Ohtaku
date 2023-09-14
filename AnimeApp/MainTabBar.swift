@@ -30,12 +30,15 @@ struct MainTabBar: View {
             .tint(Color.mainAcid)
         } else {
             SplashScreenView()
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self.isActive = true
-                }
+            .task {
+                await activateAfterDelay()
             }
         }
+    }
+    
+    func activateAfterDelay() async {
+        try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+        isActive = true
     }
 }
 

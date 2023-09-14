@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PosterView: View {
-    let anime:Anime
+    let anime:AnimeModel
     @EnvironmentObject var vm:AnimesVM
     
     var body: some View {

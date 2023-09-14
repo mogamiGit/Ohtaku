@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoreInfoDetailView: View {
-    let anime: Anime
+    let anime: AnimeModel
     @Binding var backAnimes:Bool
     
     var body: some View {
